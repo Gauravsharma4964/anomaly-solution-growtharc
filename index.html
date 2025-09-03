@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Anomaly Detection & RCA Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .brand-text-dark { color: #005F73; }
+        .brand-text-medium { color: #0A9396; }
+        .brand-text-accent { color: #EE9B00; }
+        .brand-bg-dark { background-color: #005F73; }
+        .brand-bg-medium { background-color: #0A9396; }
+        .brand-bg-light { background-color: #94D2BD; }
+        .brand-bg-accent { background-color: #EE9B00; }
+        .brand-bg-accent-dark { background-color: #CA6702; }
+        
+        .flowchart-step {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 2rem;
+        }
+        .flowchart-step:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 1.5rem;
+            bottom: 0;
+            width: 2px;
+            background-color: #94D2BD;
+        }
+        .flowchart-icon {
+            position: absolute;
+            left: 0;
+            top: 0.25rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center py-12">
+            <h1 class="text-4xl md:text-6xl font-black brand-text-dark mb-4">Beyond the Alert</h1>
+            <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">Transforming Anomaly Detection from a Simple Flag to an Actionable, Explainable Insight with Agentic AI.</p>
+        </header>
+
+        <main>
+            <section id="problem" class="mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <h3 class="text-2xl font-bold brand-text-dark mb-4 text-center">The Old Way: Manual Investigation</h3>
+                        <p class="text-center mb-6">Traditional tools are great at shouting "Something's wrong!" but leave your team to hunt for the "why".</p>
+                        <div class="flex flex-col space-y-4 text-lg">
+                            <div class="flex items-center"><span class="text-2xl mr-4">⏱️</span><span>Hours spent on manual log diving</span></div>
+                            <div class="flex items-center"><span class="text-2xl mr-4">❓</span><span>High ambiguity, low context</span></div>
+                            <div class="flex items-center"><span class="text-2xl mr-4">📉</span><span>Delayed resolutions & lost productivity</span></div>
+                            <div class="flex items-center"><span class="text-2xl mr-4">🧩</span><span>Siloed knowledge slows down RCA</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-bg-dark rounded-2xl shadow-2xl p-8 text-white">
+                        <h3 class="text-2xl font-bold text-white mb-4 text-center">The Agentic Way: Automated RCA</h3>
+                        <p class="text-center mb-6 text-gray-200">Our solution doesn't just find the anomaly; it explains it by tapping into your organization's own knowledge.</p>
+                        <div class="flex flex-col space-y-4 text-lg">
+                            <div class="flex items-center"><span class="text-2xl mr-4">⚡️</span><span>Root cause analysis in minutes</span></div>
+                            <div class="flex items-center"><span class="text-2xl mr-4">🎯</span><span>Personalized, context-rich reasoning</span></div>
+                            <div class="flex items-center"><span class="text-2xl mr-4">📈</span><span>Accelerated MTTR & improved data trust</span></div>
+                            <div class="flex items-center"><span class="text-2xl mr-4">🔗</span><span>Connects insights from Confluence, Jira & more</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution-hybrid" class="mb-16 text-center">
+                <h2 class="text-3xl font-bold brand-text-dark mb-2">Our Hybrid Approach: The Best of Both Worlds</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">We combine the proven efficiency of classic machine learning with the advanced reasoning of LLM agents to create a powerful, scalable framework.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center">
+                        <div class="chart-container h-64 md:h-72">
+                             <canvas id="hybridModelChart"></canvas>
+                        </div>
+                        <h3 class="text-xl font-bold brand-text-dark mt-4">A Symbiotic Solution</h3>
+                        <p>Our model dedicates the right technology to the right task, ensuring both speed and depth of analysis.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-left">
+                        <div class="mb-6">
+                            <h4 class="text-2xl font-bold brand-text-medium mb-2">Phase 1: Efficient Detection</h4>
+                            <p class="text-lg">Leveraging battle-tested classic ML models like Isolation Forests and DBSCAN, we can flag outliers in massive structured datasets with incredible speed and accuracy. This deterministic approach forms a reliable, cost-effective backbone for detection.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Scalable</span>
+                                <span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Reliable</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Cost-Effective</span>
+                            </div>
+                        </div>
+                        <hr class="my-6">
+                        <div>
+                            <h4 class="text-2xl font-bold brand-text-accent-dark mb-2">Phase 2: Contextual RCA</h4>
+                            <p class="text-lg">This is where the magic happens. An LLM-powered agent takes the flagged anomaly and asks "Why did this happen?". Using Retrieval-Augmented Generation (RAG), it grounds its reasoning in your organization's knowledge bases (like Confluence) to provide a clear, actionable explanation.</p>
+                             <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Explainable</span>
+                                <span class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Context-Aware</span>
+                                <span class="bg-pink-100 text-pink-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Actionable</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="use-case" class="mb-16">
+                 <h2 class="text-3xl font-bold brand-text-dark mb-2 text-center">Solution in Action: The ADI Use Case</h2>
+                 <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12 text-center">Anomalies aren't generic, so their analysis shouldn't be either. Here's how our system provides personalized reasoning during a data reconciliation task.</p>
+                 <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                     <div class="relative">
+                         <div class="flowchart-step">
+                             <div class="flowchart-icon brand-bg-medium">1</div>
+                             <h4 class="text-xl font-bold brand-text-dark">Anomaly Detected</h4>
+                             <p>During a routine pipeline run, the system identifies a significant data discrepancy between SAP and ADW tables.</p>
+                         </div>
+                         <div class="flowchart-step">
+                             <div class="flowchart-icon brand-bg-medium">2</div>
+                             <h4 class="text-xl font-bold brand-text-dark">Agent Queries Knowledge Base</h4>
+                             <p>The LLM agent is triggered. It queries the Confluence knowledge base via our custom MCP server, searching for relevant documentation, past incident reports, or SOPs related to this data pipeline.</p>
+                         </div>
+                         <div class="flowchart-step">
+                              <div class="flowchart-icon brand-bg-accent">3</div>
+                             <h4 class="text-xl font-bold brand-text-dark">Contextual Reason is Generated</h4>
+                             <p>The agent uses RAG to synthesize the information. It finds a recently updated document detailing a change in the SAP source system's schema that wasn't propagated to the ADW ingestion logic.</p>
+                         </div>
+                         <div class="flowchart-step">
+                              <div class="flowchart-icon brand-bg-accent-dark">4</div>
+                             <h4 class="text-xl font-bold brand-text-dark">Actionable Insight Delivered</h4>
+                             <p>Instead of a vague alert, the on-call engineer receives a precise notification: "Anomaly in SAP-ADW sync likely caused by recent schema change (see Confluence doc #123). Suggested fix: Update ADW mapping."</p>
+                         </div>
+                     </div>
+                 </div>
+            </section>
+            
+             <section id="impact" class="mb-16 text-center">
+                 <h2 class="text-3xl font-bold brand-text-dark mb-8">Quantifiable Impact & Business Value</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <p class="text-5xl font-black brand-text-accent">90%</p>
+                        <p class="text-lg font-semibold">Reduction in Manual Investigation Time</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <p class="text-5xl font-black brand-text-medium">5x</p>
+                        <p class="text-lg font-semibold">Faster Mean Time To Resolution (MTTR)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <p class="text-5xl font-black brand-text-dark">75%</p>
+                        <p class="text-lg font-semibold">Increase in Data Trust & Engineer Productivity</p>
+                    </div>
+                </div>
+                 <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold brand-text-dark mb-4">From Hours to Minutes</h3>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">Our agentic approach dramatically cuts down the time required for root cause analysis, freeing up valuable engineering resources.</p>
+                     <div class="chart-container">
+                         <canvas id="timeComparisonChart"></canvas>
+                     </div>
+                 </div>
+             </section>
+
+             <section id="architecture" class="mb-16">
+                 <h2 class="text-3xl font-bold brand-text-dark mb-8 text-center">The Architecture Blueprint</h2>
+                 <div class="bg-white rounded-2xl shadow-lg p-8 overflow-x-auto">
+                    <div class="flex items-center justify-center space-x-4 md:space-x-8 text-center min-w-max">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full brand-bg-light flex items-center justify-center text-4xl mb-2">📄</div>
+                            <h4 class="font-bold">Data Source</h4>
+                            <p class="text-sm">Raw & Synthetic</p>
+                        </div>
+                        <div class="text-4xl brand-text-medium font-light">→</div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full brand-bg-light flex items-center justify-center text-4xl mb-2">🧠</div>
+                            <h4 class="font-bold">LangGraph</h4>
+                            <p class="text-sm">Agent Orchestration</p>
+                        </div>
+                        <div class="text-4xl brand-text-medium font-light">→</div>
+                        <div class="flex flex-col items-center">
+                             <div class="w-24 h-24 rounded-full brand-bg-light flex items-center justify-center text-4xl mb-2">🤖</div>
+                            <h4 class="font-bold">LLM API</h4>
+                            <p class="text-sm">Anomaly Detection</p>
+                        </div>
+                        <div class="text-4xl brand-text-accent font-light">→</div>
+                         <div class="flex flex-col items-center">
+                             <div class="w-24 h-24 rounded-full brand-bg-accent text-white flex items-center justify-center text-4xl mb-2">📚</div>
+                            <h4 class="font-bold">MCP Server</h4>
+                            <p class="text-sm">Confluence Grounding</p>
+                        </div>
+                        <div class="text-4xl brand-text-accent font-light">→</div>
+                         <div class="flex flex-col items-center">
+                             <div class="w-24 h-24 rounded-full brand-bg-dark text-white flex items-center justify-center text-4xl mb-2">🏢</div>
+                            <h4 class="font-bold">ARC AI</h4>
+                            <p class="text-sm">Enterprise Integration</p>
+                        </div>
+                    </div>
+                 </div>
+             </section>
+
+            <section id="future" class="mb-16">
+                <h2 class="text-3xl font-bold brand-text-dark mb-8 text-center">Future Roadmap: Scaling the Solution</h2>
+                 <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                     <div class="relative">
+                         <div class="flowchart-step">
+                             <div class="flowchart-icon brand-bg-dark" style="top: -0.5rem;">🚀</div>
+                             <h4 class="text-xl font-bold brand-text-dark">Current State: Foundational RCA</h4>
+                             <p>Agentic RCA integrated with Confluence and deployed via ARC AI.</p>
+                         </div>
+                         <div class="flowchart-step">
+                              <div class="flowchart-icon brand-bg-medium">Q1</div>
+                             <h4 class="text-xl font-bold brand-text-dark">Dynamic Data Validation</h4>
+                             <p>Integrate with <strong>Great Expectations</strong> to create and update data quality rules on the fly, building a self-improving feedback loop.</p>
+                         </div>
+                         <div class="flowchart-step">
+                             <div class="flowchart-icon brand-bg-medium">Q2</div>
+                             <h4 class="text-xl font-bold brand-text-dark">Enterprise Scale & Real-Time</h4>
+                             <p>Integrate with <strong>Databricks</strong> for distributed processing on massive datasets and extend capabilities to real-time streaming data pipelines.</p>
+                         </div>
+                         <div class="flowchart-step">
+                             <div class="flowchart-icon brand-bg-accent">Q3</div>
+                             <h4 class="text-xl font-bold brand-text-dark">Holistic Knowledge Grounding</h4>
+                             <p>Expand grounding beyond Confluence into <strong>Jira, Slack, and knowledge graphs</strong> for a complete, 360-degree view of organizational context.</p>
+                         </div>
+                     </div>
+                 </div>
+            </section>
+        </main>
+
+        <footer class="text-center py-12 border-t mt-8">
+            <h2 class="text-3xl font-black brand-text-dark">Our Unique Selling Proposition</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mt-4">We don't just find problems; we help you understand them by <strong class="brand-text-medium">integrating with your existing systems</strong> and providing <strong class="brand-text-accent-dark">personalized data reasoning</strong>.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabels = (label) => {
+            const maxLength = 16;
+            if (typeof label !== 'string' || label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+
+        const chartColors = {
+            dark: '#005F73',
+            medium: '#0A9396',
+            light: '#94D2BD',
+            accent: '#EE9B00',
+            accentDark: '#CA6702',
+            danger: '#AE2012',
+        };
+
+        const createHybridModelChart = () => {
+            const ctx = document.getElementById('hybridModelChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Classic ML for Detection', 'LLM Agent for RCA'],
+                    datasets: [{
+                        label: 'Solution Components',
+                        data: [50, 50],
+                        backgroundColor: [chartColors.medium, chartColors.accent],
+                        borderColor: '#ffffff',
+                        borderWidth: 4,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    size: 14,
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        const createTimeComparisonChart = () => {
+            const ctx = document.getElementById('timeComparisonChart').getContext('2d');
+            const originalLabels = ['Traditional Manual RCA', 'Our Agentic RCA'];
+            const wrappedLabels = originalLabels.map(wrapLabels);
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: wrappedLabels,
+                    datasets: [{
+                        label: 'Time to Resolution (Hours)',
+                        data: [8, 0.5],
+                        backgroundColor: [chartColors.danger, chartColors.medium],
+                        borderRadius: 8,
+                        barPercentage: 0.5,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Average Time (Hours)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        window.onload = function () {
+            createHybridModelChart();
+            createTimeComparisonChart();
+        }
+    </script>
+</body>
+</html>
+
