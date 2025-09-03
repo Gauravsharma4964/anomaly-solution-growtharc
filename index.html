@@ -12,7 +12,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background-color: #fffcf2;
         }
         .brand-text-dark { color: #005F73; }
         .brand-text-medium { color: #0A9396; }
@@ -25,13 +25,13 @@
         
         .flowchart-step {
             position: relative;
-            padding-left: 2.5rem;
+            padding-left: 3rem;
             padding-bottom: 2rem;
         }
         .flowchart-step:not(:last-child)::before {
             content: '';
             position: absolute;
-            left: 18px;
+            left: 20px;
             top: 1.5rem;
             bottom: 0;
             width: 2px;
@@ -68,9 +68,24 @@
 </head>
 <body class="text-gray-700">
 
-    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+    <header class="w-full bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 md:px-8 max-w-7xl flex items-center justify-between py-4">
+            <div class="flex items-center">
+                <img src="logo.png" alt="GrowthArc Logo" class="h-8">
+            </div>
+            <nav class="hidden md:flex space-x-6 text-gray-600 font-semibold">
+                <a href="#problem" class="hover:text-brand-text-dark">Problem</a>
+                <a href="#solution-hybrid" class="hover:text-brand-text-dark">Solution</a>
+                <a href="#use-case" class="hover:text-brand-text-dark">Use Case</a>
+                <a href="#impact" class="hover:text-brand-text-dark">Impact</a>
+                <a href="#architecture" class="hover:text-brand-text-dark">Architecture</a>
+                <a href="#future" class="hover:text-brand-text-dark">Future</a>
+            </nav>
+        </div>
+    </header>
 
-        <header class="text-center py-12">
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <header class="text-center py-8">
             <h1 class="text-4xl md:text-6xl font-black brand-text-dark mb-4">Beyond the Alert</h1>
             <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">Transforming Anomaly Detection from a Simple Flag to an Actionable, Explainable Insight with Agentic AI.</p>
         </header>
@@ -78,7 +93,7 @@
         <main>
             <section id="problem" class="mb-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="bg-[#DBC6AB] rounded-2xl shadow-lg p-8">
                         <h3 class="text-2xl font-bold brand-text-dark mb-4 text-center">The Old Way: Manual Investigation</h3>
                         <p class="text-center mb-6">Traditional tools are great at shouting "Something's wrong!" but leave your team to hunt for the "why".</p>
                         <div class="flex flex-col space-y-4 text-lg">
@@ -142,24 +157,24 @@
                  <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
                      <div class="relative">
                          <div class="flowchart-step">
-                             <div class="flowchart-icon brand-bg-medium">1</div>
-                             <h4 class="text-xl font-bold brand-text-dark">Anomaly Detected</h4>
-                             <p>During a routine pipeline run, the system identifies a significant data discrepancy between SAP and ADW tables.</p>
+                             <div class="flowchart-icon brand-bg-medium text-lg">1</div>
+                             <h4 class="text-xl font-bold brand-text-dark">Anomaly Detected during Reconciliation</h4>
+                             <p class="text-lg text-gray-800 mt-2 ml-10">During a routine pipeline run and reconciliation, the system identifies a significant data discrepancy between SAP and ADW tables.</p>
                          </div>
                          <div class="flowchart-step">
-                             <div class="flowchart-icon brand-bg-medium">2</div>
+                             <div class="flowchart-icon brand-bg-medium text-lg">2</div>
                              <h4 class="text-xl font-bold brand-text-dark">Agent Queries Knowledge Base</h4>
-                             <p>The LLM agent is triggered. It queries the Confluence knowledge base via our custom MCP server, searching for relevant documentation, past incident reports, or SOPs related to this data pipeline.</p>
+                             <p class="text-lg text-gray-800 mt-2 ml-10">The LLM agent is triggered. It queries the Confluence knowledge base via our custom MCP server, searching for relevant documentation, past incident reports, or SOPs related to this data pipeline.</p>
                          </div>
                          <div class="flowchart-step">
-                              <div class="flowchart-icon brand-bg-accent">3</div>
+                              <div class="flowchart-icon brand-bg-accent text-lg">3</div>
                              <h4 class="text-xl font-bold brand-text-dark">Contextual Reason is Generated</h4>
-                             <p>The agent uses RAG to synthesize the information. It finds a recently updated document detailing a change in the SAP source system's schema that wasn't propagated to the ADW ingestion logic.</p>
+                             <p class="text-lg text-gray-800 mt-2 ml-10">The agent uses RAG to synthesize the information. It finds a recently updated document detailing a change in the SAP source system's schema that wasn't propagated to the ADW ingestion logic.</p>
                          </div>
                          <div class="flowchart-step">
-                              <div class="flowchart-icon brand-bg-accent-dark">4</div>
+                              <div class="flowchart-icon brand-bg-accent-dark text-lg">4</div>
                              <h4 class="text-xl font-bold brand-text-dark">Actionable Insight Delivered</h4>
-                             <p>Instead of a vague alert, the on-call engineer receives a precise notification: "Anomaly in SAP-ADW sync likely caused by recent schema change (see Confluence doc #123). Suggested fix: Update ADW mapping."</p>
+                             <p class="text-lg text-gray-800 mt-2 ml-10">Instead of a vague alert, the on-call engineer receives a precise notification: "Anomaly in SAP-ADW sync likely caused by recent schema change (see Confluence doc #123). Suggested fix: Update ADW mapping."</p>
                          </div>
                      </div>
                  </div>
@@ -167,6 +182,9 @@
             
              <section id="impact" class="mb-16 text-center">
                  <h2 class="text-3xl font-bold brand-text-dark mb-8">Quantifiable Impact & Business Value</h2>
+                 <p class="text-sm italic text-gray-500 max-w-3xl mx-auto mb-8">
+                     *Note: The following metrics are for illustrative purposes based on our prototype and projected impact.*
+                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <div class="bg-white p-6 rounded-2xl shadow-lg">
                         <p class="text-5xl font-black brand-text-accent">90%</p>
@@ -232,24 +250,24 @@
                  <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
                      <div class="relative">
                          <div class="flowchart-step">
-                             <div class="flowchart-icon brand-bg-dark" style="top: -0.5rem;">🚀</div>
+                             <div class="flowchart-icon brand-bg-dark text-lg" style="top: -0.5rem;">🚀</div>
                              <h4 class="text-xl font-bold brand-text-dark">Current State: Foundational RCA</h4>
-                             <p>Agentic RCA integrated with Confluence and deployed via ARC AI.</p>
+                             <p class="text-lg text-gray-800 mt-2 ml-10">Agentic RCA integrated with Confluence and deployed via ARC AI.</p>
                          </div>
                          <div class="flowchart-step">
-                              <div class="flowchart-icon brand-bg-medium">Q1</div>
-                             <h4 class="text-xl font-bold brand-text-dark">Dynamic Data Validation</h4>
-                             <p>Integrate with <strong>Great Expectations</strong> to create and update data quality rules on the fly, building a self-improving feedback loop.</p>
+                              <div class="flowchart-icon brand-bg-medium text-lg">Q1</div>
+                             <h4 class="text-xl font-bold brand-text-dark">Cost-Effective Anomaly Detection</h4>
+                             <p class="text-lg text-gray-800 mt-2 ml-10">Leverage and integrate with <strong>classic ML models</strong> for anomaly detection instead of LLMs, which is more scalable and cost-effective.</p>
                          </div>
                          <div class="flowchart-step">
-                             <div class="flowchart-icon brand-bg-medium">Q2</div>
+                             <div class="flowchart-icon brand-bg-medium text-lg">Q2</div>
                              <h4 class="text-xl font-bold brand-text-dark">Enterprise Scale & Real-Time</h4>
-                             <p>Integrate with <strong>Databricks</strong> for distributed processing on massive datasets and extend capabilities to real-time streaming data pipelines.</p>
+                             <p class="text-lg text-gray-800 mt-2 ml-10">Integrate tools like <strong>ETL, Databricks, Snowflake,</strong> etc. for distributed processing on massive datasets and extend capabilities to real-time streaming data pipelines.</p>
                          </div>
                          <div class="flowchart-step">
-                             <div class="flowchart-icon brand-bg-accent">Q3</div>
+                             <div class="flowchart-icon brand-bg-accent text-lg">Q3</div>
                              <h4 class="text-xl font-bold brand-text-dark">Holistic Knowledge Grounding</h4>
-                             <p>Expand grounding beyond Confluence into <strong>Jira, Slack, and knowledge graphs</strong> for a complete, 360-degree view of organizational context.</p>
+                             <p class="text-lg text-gray-800 mt-2 ml-10">Expand grounding beyond Confluence into <strong>Jira, Slack, and knowledge graphs</strong> for a complete, 360-degree view of organizational context.</p>
                          </div>
                      </div>
                  </div>
@@ -259,6 +277,7 @@
         <footer class="text-center py-12 border-t mt-8">
             <h2 class="text-3xl font-black brand-text-dark">Our Unique Selling Proposition</h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto mt-4">We don't just find problems; we help you understand them by <strong class="brand-text-medium">integrating with your existing systems</strong> and providing <strong class="brand-text-accent-dark">personalized data reasoning</strong>.</p>
+            <p class="text-center text-gray-400 mt-12">GrowthArc Hackathon 2025</p>
         </footer>
 
     </div>
@@ -392,4 +411,3 @@
     </script>
 </body>
 </html>
-
