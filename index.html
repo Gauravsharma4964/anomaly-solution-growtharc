@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agentic Anomaly Detection & RCA Infographic</title>
+    <title>Agentic Anomaly Detection & RCA</title>
+    <!-- ADDED FAVICON -->
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='45' fill='%230A9396'/%3e%3ccircle cx='50' cy='50' r='25' fill='white'/%3e%3ccircle cx='50' cy='50' r='10' fill='%23005F73'/%3e%3c/svg%3e">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,19 +70,28 @@
 </head>
 <body class="text-gray-700">
 
+    <!-- Header Section -->
     <header class="w-full bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 md:px-8 max-w-7xl flex items-center justify-between py-4">
+            <!-- Logo -->
             <div class="flex items-center">
-                <img src="logo.png" alt="GrowthArc Logo" class="h-6">
+                 <img src="logo.png" alt="GrowthArc Logo" class="h-5">
             </div>
-            <nav class="hidden md:flex space-x-6 text-gray-600 font-semibold">
-                <a href="#problem" class="hover:text-brand-text-dark">Problem</a>
-                <a href="#solution-hybrid" class="hover:text-brand-text-dark">Solution</a>
-                <a href="#use-case" class="hover:text-brand-text-dark">Use Case</a>
-                <a href="#impact" class="hover:text-brand-text-dark">Impact</a>
-                <a href="#architecture" class="hover:text-brand-text-dark">Architecture</a>
-                <a href="#future" class="hover:text-brand-text-dark">Future</a>
-            </nav>
+            <!-- Navigation Links and Try Now Button -->
+            <div class="hidden md:flex items-center">
+                <nav class="flex space-x-6 text-gray-600 font-semibold">
+                    <a href="#problem" class="hover:text-brand-text-dark">Problem</a>
+                    <a href="#solution-hybrid" class="hover:text-brand-text-dark">Solution</a>
+                    <a href="#use-case" class="hover:text-brand-text-dark">Use Case</a>
+                    <a href="#impact" class="hover:text-brand-text-dark">Impact</a>
+                    <a href="#architecture" class="hover:text-brand-text-dark">Architecture</a>
+                    <a href="#future" class="hover:text-brand-text-dark">Future</a>
+                </nav>
+                <!-- ADDED TRY NOW BUTTON -->
+                <a href="https://solutions.growtharc.com/ArcAI/invoke/e38a6738-55f1-4abd-9ab7-dd60a3b5fb25" target="_blank" rel="noopener noreferrer" class="ml-8 brand-bg-dark hover:brand-bg-medium text-white font-bold py-2 px-5 rounded-lg transition-colors">
+                    Try Now
+                </a>
+            </div>
         </div>
     </header>
 
@@ -411,3 +422,4 @@
     </script>
 </body>
 </html>
+
